@@ -1,9 +1,9 @@
 <?php
 
-namespace JanVince\SmallContactForm\ReportWidgets;
+namespace opiy\SmallContactForm\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use JanVince\SmallContactForm\Controllers\Messages as MessagesController;
+use opiy\SmallContactForm\Controllers\Messages as MessagesController;
 
 /**
  * Contact form sent messages report widget

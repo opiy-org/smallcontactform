@@ -1,6 +1,6 @@
 <?php
 
-namespace JanVince\SmallContactForm;
+namespace opiy\SmallContactForm;
 
 use \Illuminate\Support\Facades\Event;
 use System\Classes\PluginBase;
@@ -9,7 +9,7 @@ use Config;
 use Backend;
 
 
-use JanVince\SmallContactForm\Models\Settings;
+use opiy\SmallContactForm\Models\Settings;
 
 
 class Plugin extends PluginBase {
@@ -26,8 +26,8 @@ class Plugin extends PluginBase {
      */
     public function pluginDetails() {
         return [
-            'name' => 'janvince.smallcontactform::lang.plugin.name',
-            'description' => 'janvince.smallcontactform::lang.plugin.description',
+            'name' => 'opiy.smallcontactform::lang.plugin.name',
+            'description' => 'opiy.smallcontactform::lang.plugin.description',
             'author' => 'Jan Vince',
             'icon' => 'icon-inbox'
         ];
@@ -41,14 +41,14 @@ class Plugin extends PluginBase {
 
         return [
             'settings' => [
-                'label' => 'janvince.smallcontactform::lang.plugin.name',
-                'description' => 'janvince.smallcontactform::lang.plugin.description',
+                'label' => 'opiy.smallcontactform::lang.plugin.name',
+                'description' => 'opiy.smallcontactform::lang.plugin.description',
                 'category'    => 'Small plugins',
                 'icon' => 'icon-inbox',
-                'class' => 'JanVince\SmallContactForm\Models\Settings',
+                'class' => 'opiy\SmallContactForm\Models\Settings',
                 'keywords' => 'small contact form message recaptcha antispam',
                 'order' => 990,
-                'permissions' => ['janvince.smallcontactform.access_settings'],
+                'permissions' => ['opiy.smallcontactform.access_settings'],
             ]
         ];
     }
@@ -56,18 +56,18 @@ class Plugin extends PluginBase {
     public function registerNavigation(){
         return [
             'smallcontactform' => [
-                'label'       => 'janvince.smallcontactform::lang.navigation.main_label',
-                'url'         => Backend::url('janvince/smallcontactform/messages'),
+                'label'       => 'opiy.smallcontactform::lang.navigation.main_label',
+                'url'         => Backend::url('opiy/smallcontactform/messages'),
                 'icon'        => 'icon-inbox',
-                'permissions' => ['janvince.smallcontactform.access_messages'],
+                'permissions' => ['opiy.smallcontactform.access_messages'],
                 'order'       => 990,
 
                 'sideMenu' => [
                     'messages' => [
-                        'label'       => 'janvince.smallcontactform::lang.navigation.messages',
+                        'label'       => 'opiy.smallcontactform::lang.navigation.messages',
                         'icon'        => 'icon-envelope-o',
-                        'url'         => Backend::url('janvince/smallcontactform/messages'),
-                        'permissions' => ['janvince.smallcontactform.access_messages']
+                        'url'         => Backend::url('opiy/smallcontactform/messages'),
+                        'permissions' => ['opiy.smallcontactform.access_messages']
                     ],
 
                 ],
@@ -81,17 +81,17 @@ class Plugin extends PluginBase {
     public function registerPermissions(){
 
         return [
-            'janvince.smallcontactform.access_messages' => [
-                'label' => 'janvince.smallcontactform::lang.permissions.access_messages',
-                'tab' => 'janvince.smallcontactform::lang.plugin.name',
+            'opiy.smallcontactform.access_messages' => [
+                'label' => 'opiy.smallcontactform::lang.permissions.access_messages',
+                'tab' => 'opiy.smallcontactform::lang.plugin.name',
             ],
-            'janvince.smallcontactform.delete_messages' => [
-                'label' => 'janvince.smallcontactform::lang.permissions.delete_messages',
-                'tab' => 'janvince.smallcontactform::lang.plugin.name',
+            'opiy.smallcontactform.delete_messages' => [
+                'label' => 'opiy.smallcontactform::lang.permissions.delete_messages',
+                'tab' => 'opiy.smallcontactform::lang.plugin.name',
             ],
-            'janvince.smallcontactform.access_settings' => [
-                'label' => 'janvince.smallcontactform::lang.permissions.access_settings',
-                'tab' => 'janvince.smallcontactform::lang.plugin.name',
+            'opiy.smallcontactform.access_settings' => [
+                'label' => 'opiy.smallcontactform::lang.permissions.access_settings',
+                'tab' => 'opiy.smallcontactform::lang.plugin.name',
             ],
         ];
 
@@ -100,7 +100,7 @@ class Plugin extends PluginBase {
     public function registerComponents()
     {
         return [
-            'JanVince\SmallContactForm\Components\SmallContactForm' => 'contactForm',
+            'opiy\SmallContactForm\Components\SmallContactForm' => 'contactForm',
         ];
     }
 
@@ -135,7 +135,7 @@ class Plugin extends PluginBase {
             'strong' => function($value) { return '<strong>'. $value . '</strong>'; },
             'text_preview' => function($value) { $content = mb_substr(strip_tags($value), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
             'array_preview' => function($value) { $content = mb_substr(strip_tags( implode(' --- ', $value) ), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
-            'switch_icon_star' => function($value) { return '<div class="text-center"><span class="'. ($value==1 ? 'oc-icon-circle text-success' : 'text-muted oc-icon-circle text-draft') .'">' . ($value==1 ? e(trans('janvince.smallcontactform::lang.models.message.columns.new')) : e(trans('janvince.smallcontactform::lang.models.message.columns.read')) ) . '</span></div>'; },
+            'switch_icon_star' => function($value) { return '<div class="text-center"><span class="'. ($value==1 ? 'oc-icon-circle text-success' : 'text-muted oc-icon-circle text-draft') .'">' . ($value==1 ? e(trans('opiy.smallcontactform::lang.models.message.columns.new')) : e(trans('opiy.smallcontactform::lang.models.message.columns.read')) ) . '</span></div>'; },
             'switch_extended_input' => function($value) { if($value){return '<input type="checkbox" checked>';} else { return '<input type="checkbox">';} },
             'switch_extended' => function($value) { if($value){return '<span class="list-badge badge-success"><span class="icon-check"></span></span>';} else { return '<span class="list-badge badge-danger"><span class="icon-minus"></span></span>';} },
             'attached_images_count' => function($value){ return (count($value) ? count($value) : NULL); },
@@ -151,12 +151,12 @@ class Plugin extends PluginBase {
     public function registerReportWidgets()
     {
         return [
-            'JanVince\SmallContactForm\ReportWidgets\Messages' => [
-                'label'   => 'janvince.smallcontactform::lang.reportwidget.partials.messages.label',
+            'opiy\SmallContactForm\ReportWidgets\Messages' => [
+                'label'   => 'opiy.smallcontactform::lang.reportwidget.partials.messages.label',
                 'context' => 'dashboard'
             ],
-            'JanVince\SmallContactForm\ReportWidgets\NewMessage' => [
-                'label'   => 'janvince.smallcontactform::lang.reportwidget.partials.new_message.label',
+            'opiy\SmallContactForm\ReportWidgets\NewMessage' => [
+                'label'   => 'opiy.smallcontactform::lang.reportwidget.partials.new_message.label',
                 'context' => 'dashboard'
             ],
         ];

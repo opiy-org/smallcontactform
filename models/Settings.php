@@ -1,6 +1,6 @@
 <?php
 
-namespace JanVince\SmallContactForm\Models;
+namespace opiy\SmallContactForm\Models;
 
 use Model;
 use App;
@@ -32,9 +32,9 @@ class Settings extends Model
         'notification_template',
     ];
 
-    public $requiredPermissions = ['janvince.smallcontactform.access_settings'];
+    public $requiredPermissions = ['opiy.smallcontactform.access_settings'];
 
-    public $settingsCode = 'janvince_smallcontactform_settings';
+    public $settingsCode = 'opiy_smallcontactform_settings';
 
     public $settingsFields = 'fields.yaml';
 
@@ -106,7 +106,7 @@ class Settings extends Model
     }
 
     foreach ($fieldTypes as $key => $value) {
-      $types[$key] = 'janvince.smallcontactform::lang.settings.form_field_types.'.$key;
+      $types[$key] = 'opiy.smallcontactform::lang.settings.form_field_types.'.$key;
     }
 
     return $types;
@@ -121,9 +121,9 @@ class Settings extends Model
   {
 
       return [
-      'required' => 'janvince.smallcontactform::lang.settings.form_field_validation.required',
-      'email' => 'janvince.smallcontactform::lang.settings.form_field_validation.email',
-      'numeric' => 'janvince.smallcontactform::lang.settings.form_field_validation.numeric',
+      'required' => 'opiy.smallcontactform::lang.settings.form_field_validation.required',
+      'email' => 'opiy.smallcontactform::lang.settings.form_field_validation.email',
+      'numeric' => 'opiy.smallcontactform::lang.settings.form_field_validation.numeric',
     ];
   }
 
@@ -304,11 +304,11 @@ class Settings extends Model
             'en' => [
 
                 'autoreply' => [
-                    'janvince.smallcontactform::mail.autoreply' => 'janvince.smallcontactform::lang.mail.templates.autoreply',
+                    'opiy.smallcontactform::mail.autoreply' => 'opiy.smallcontactform::lang.mail.templates.autoreply',
                 ],
 
                 'notification' => [
-                    'janvince.smallcontactform::mail.notification' => 'janvince.smallcontactform::lang.mail.templates.notification',
+                    'opiy.smallcontactform::mail.notification' => 'opiy.smallcontactform::lang.mail.templates.notification',
                 ],
 
             ],
@@ -316,11 +316,11 @@ class Settings extends Model
             'cs' => [
 
                 'autoreply' => [
-                    'janvince.smallcontactform::mail.autoreply_cs' => 'janvince.smallcontactform::lang.mail.templates.autoreply_cs',
+                    'opiy.smallcontactform::mail.autoreply_cs' => 'opiy.smallcontactform::lang.mail.templates.autoreply_cs',
                 ],
 
                 'notification' => [
-                    'janvince.smallcontactform::mail.notification_cs' => 'janvince.smallcontactform::lang.mail.templates.notification_cs',
+                    'opiy.smallcontactform::mail.notification_cs' => 'opiy.smallcontactform::lang.mail.templates.notification_cs',
                 ],
 
             ],

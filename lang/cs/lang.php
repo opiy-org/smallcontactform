@@ -252,7 +252,7 @@ return [
       'subject_comment' => 'Nastavte pouze pokud chcete přepsat předmět definovaný v šabloně (Nastavení > E-mailové šablony).',
 
       'template' => 'Šablona emailu',
-      'template_comment' => 'Kód emailové šablony vytvořené v Nastavení > E-mailové šablony. Nechte prázdné pro výchozí šablonu: janvince.smallcontactform::mail.autoreply.',
+      'template_comment' => 'Kód emailové šablony vytvořené v Nastavení > E-mailové šablony. Nechte prázdné pro výchozí šablonu: opiy.smallcontactform::mail.autoreply.',
 
       'allow_email_queue' => 'Řadit do fronty',
       'allow_email_queue_comment' => 'Přidat emaily do fronty místo okamžitého odeslání. Musíte ale nejdříve správně nakonfigurovat frontu systému OctoberCMS!',
@@ -282,7 +282,7 @@ return [
       'autoreply_message_field_comment' => 'Pole typu Textarea nebo Text.',
 
       'notification_template' => 'Šablona notifikačního emailu',
-      'notification_template_comment' => 'Kód emailové šablony vytvořené v Nastavení > E-mailové šablony. Nechte prázdné pro výchozí šablonu: janvince.smallcontactform::mail.notification.',
+      'notification_template_comment' => 'Kód emailové šablony vytvořené v Nastavení > E-mailové šablony. Nechte prázdné pro výchozí šablonu: opiy.smallcontactform::mail.notification.',
 
     ],
 

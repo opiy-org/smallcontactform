@@ -1,6 +1,6 @@
 <?php
 
-namespace JanVince\SmallContactForm\Updates;
+namespace opiy\SmallContactForm\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
@@ -10,7 +10,7 @@ class SmallContactFormTables_01 extends Migration
     public function up()
     {
 
-        Schema::create('janvince_smallcontactform_messages', function($table)
+        Schema::create('opiy_smallcontactform_messages', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -26,6 +26,6 @@ class SmallContactFormTables_01 extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('janvince_smallcontactform_messages');
+        Schema::dropIfExists('opiy_smallcontactform_messages');
     }
 }

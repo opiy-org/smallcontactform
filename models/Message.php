@@ -1,4 +1,4 @@
-<?php namespace JanVince\SmallContactForm\Models;
+<?php namespace opiy\SmallContactForm\Models;
 
 use Str;
 use Model;
@@ -6,7 +6,7 @@ use URL;
 use October\Rain\Router\Helper as RouterHelper;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
-use JanVince\SmallContactForm\Models\Settings;
+use opiy\SmallContactForm\Models\Settings;
 use Log;
 use Validator;
 use Mail;
@@ -22,7 +22,7 @@ class Message extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-    public $table = 'janvince_smallcontactform_messages';
+    public $table = 'opiy_smallcontactform_messages';
 
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 

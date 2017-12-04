@@ -1,9 +1,9 @@
-<?php namespace Janvince\SmallContactform\Controllers;
+<?php namespace opiy\SmallContactform\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use JanVince\SmallContactForm\Models\Settings;
-use JanVince\SmallContactForm\Models\Message;
+use opiy\SmallContactForm\Models\Settings;
+use opiy\SmallContactForm\Models\Message;
 use Flash;
 use App;
 use Carbon\Carbon;
@@ -16,7 +16,7 @@ use Backend;
  */
 class Messages extends Controller
 {
-  public $requiredPermissions = ['janvince.smallcontactform.access_messages'];
+  public $requiredPermissions = ['opiy.smallcontactform.access_messages'];
 
     public $implement = [
         'Backend.Behaviors.ListController'
@@ -27,7 +27,7 @@ class Messages extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('JanVince.SmallContactForm', 'smallcontactform', 'messages');
+        BackendMenu::setContext('opiy.SmallContactForm', 'smallcontactform', 'messages');
     }
 
   /**
@@ -96,8 +96,8 @@ class Messages extends Controller
 
         } else{
 
-            Flash::error( e( trans( 'janvince.smallcontactform::lang.controller.preview.record_not_found') ) );
-            return Redirect::to( Backend::url( 'janvince/smallcontactform/messages' ) );
+            Flash::error( e( trans( 'opiy.smallcontactform::lang.controller.preview.record_not_found') ) );
+            return Redirect::to( Backend::url( 'opiy/smallcontactform/messages' ) );
 
         }
 
@@ -110,9 +110,9 @@ class Messages extends Controller
 
         parent::index();
 
-        if (!$this->user->hasAccess('janvince.smallcontactform.access_messages')) {
+        if (!$this->user->hasAccess('opiy.smallcontactform.access_messages')) {
 
-          Flash::error( e(trans('janvince.smallcontactform::lang.controllers.index.unauthorized')) );
+          Flash::error( e(trans('opiy.smallcontactform::lang.controllers.index.unauthorized')) );
           return Redirect::to( Backend::url('/') );
 
         }
@@ -125,9 +125,9 @@ class Messages extends Controller
      */
     public function onMarkRead(){
 
-        if (!$this->user->hasAccess('janvince.smallcontactform.access_messages')) {
+        if (!$this->user->hasAccess('opiy.smallcontactform.access_messages')) {
 
-            Flash::error( e(trans('janvince.smallcontactform::lang.controllers.index.unauthorized')) );
+            Flash::error( e(trans('opiy.smallcontactform::lang.controllers.index.unauthorized')) );
             return;
 
         }
@@ -144,7 +144,7 @@ class Messages extends Controller
 
             }
 
-            Flash::success( e(trans('janvince.smallcontactform::lang.controller.scoreboard.mark_read_success')) );
+            Flash::success( e(trans('opiy.smallcontactform::lang.controller.scoreboard.mark_read_success')) );
 
             return $this->listRefresh();
 

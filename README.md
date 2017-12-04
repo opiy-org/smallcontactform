@@ -1,5 +1,5 @@
-# Small Contact form
-> Simple but flexible contact form builder with custom fields, validation and passive antispam.
+# small FAQ plugin 
+> fork from https://github.com/jan-vince/smallcontactform
 
 
 ## Installation
@@ -7,7 +7,7 @@
 **GitHub** clone into `/plugins` dir:
 
 ```sh
-git clone https://github.com/jan-vince/smallcontactform
+git clone https://github.com/opiy-org/smallcontactform
 ```
 
 **OctoberCMS backend**
@@ -151,7 +151,7 @@ There are variables available in all email templates:
 Email can be send to form sender as confirmation.
 
 * You have to enter email address and name - it will be used as FROM field
-* Email subject can be manually added here (or edited in *Settings > Mail > Mail templates (code: janvince.smallcontactform::mail.autoreply)*)
+* Email subject can be manually added here (or edited in *Settings > Mail > Mail templates (code: opiy.smallcontactform::mail.autoreply)*)
 * Email TO address and name have to be assigned to form fields (in selections only corresponding field types are shown - if you don't see one, try to check it's type in Fields tab)
  * Message field can be also assigned (and will be saved separately into database)
 
@@ -179,7 +179,7 @@ Translate plugin doesn't supports translation of individual repeater fields yet,
 
 #### Email templates
 
-You can create your own email templates in *Settings > Mail > Mail templates* (for hint look inside of default templates starting with *janvince.smallcontactform::*).
+You can create your own email templates in *Settings > Mail > Mail templates* (for hint look inside of default templates starting with *opiy.smallcontactform::*).
 
 Remember your email templates CODE and put in in Small Contact form email settings in *Settings > Small plugins > Contact form > Email tab*. For each language there can be specific template.
 
