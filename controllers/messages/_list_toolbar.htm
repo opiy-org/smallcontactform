@@ -2,20 +2,20 @@
     <div data-control="toolbar">
         <div class="scoreboard-item control-chart" data-control="chart-pie">
             <ul>
-                <li data-color="#95b753"><?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.new_count')) ?> <span><?= $this->getRecordsStats('new_count'); ?></span></li>
-                <li data-color="#d1d1d1"><?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.read_count')) ?> <span><?= $this->getRecordsStats('read_count'); ?></span></li>
+                <li data-color="#95b753"><?= e(trans('opiy.faq::lang.controller.scoreboard.new_count')) ?> <span><?= $this->getRecordsStats('new_count'); ?></span></li>
+                <li data-color="#d1d1d1"><?= e(trans('opiy.faq::lang.controller.scoreboard.read_count')) ?> <span><?= $this->getRecordsStats('read_count'); ?></span></li>
             </ul>
         </div>
 
         <div class="scoreboard-item title-value">
-            <h4><?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.all_count')) ?></h4>
+            <h4><?= e(trans('opiy.faq::lang.controller.scoreboard.all_count')) ?></h4>
             <p><?= $this->getRecordsStats('all_count'); ?></p>
-            <p class="description"><?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.all_description')) ?></p>
+            <p class="description"><?= e(trans('opiy.faq::lang.controller.scoreboard.all_description')) ?></p>
         </div>
 
 
         <div class="scoreboard-item title-value">
-            <h4><?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.latest_record')) ?></h4>
+            <h4><?= e(trans('opiy.faq::lang.controller.scoreboard.latest_record')) ?></h4>
             <p class="oc-icon-user"><?= $this->getRecordsStats('latest_message_name'); ?></p>
             <p class="description"><?= $this->getRecordsStats('latest_message_date'); ?></p>
         </div>
@@ -25,7 +25,7 @@
 
 
     <div data-control="toolbar">
-      <?php if ($this->user->hasAccess('opiy.smallcontactform.delete_messages')): ?>
+      <?php if ($this->user->hasAccess('opiy.faq.delete_messages')): ?>
         <button
             class="btn btn-default oc-icon-trash-o"
             disabled="disabled"
@@ -50,14 +50,14 @@
               checked: $('.control-list').listWidget('getChecked')
           })"
           data-request="onMarkRead"
-          data-request-confirm="<?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.mark_read_confirm')) ?>"
+          data-request-confirm="<?= e(trans('opiy.faq::lang.controller.scoreboard.mark_read_confirm')) ?>"
           data-trigger-action="enable"
           data-trigger=".control-list input[type=checkbox]"
           data-trigger-condition="checked"
           data-request-success="$(this).prop('disabled', true)"
           data-stripe-load-indicator>
-          <?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.mark_read')) ?>
+          <?= e(trans('opiy.faq::lang.controller.scoreboard.mark_read')) ?>
       </button>
 
-        <a href="<?= Backend::url('system/settings/update/opiy/smallcontactform/settings'); ?>" class="btn btn-info oc-icon-cogs"><?= e(trans('opiy.smallcontactform::lang.controller.scoreboard.settings_btn')) ?></a>
+        <a href="<?= Backend::url('system/settings/update/opiy/faq/settings'); ?>" class="btn btn-info oc-icon-cogs"><?= e(trans('opiy.faq::lang.controller.scoreboard.settings_btn')) ?></a>
     </div>

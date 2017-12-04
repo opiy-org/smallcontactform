@@ -1,6 +1,6 @@
 <?php
 
-namespace opiy\SmallContactForm;
+namespace opiy\Faq;
 
 use \Illuminate\Support\Facades\Event;
 use System\Classes\PluginBase;
@@ -9,7 +9,7 @@ use Config;
 use Backend;
 
 
-use opiy\SmallContactForm\Models\Settings;
+use opiy\Faq\Models\Settings;
 
 
 class Plugin extends PluginBase {
@@ -26,10 +26,10 @@ class Plugin extends PluginBase {
      */
     public function pluginDetails() {
         return [
-            'name' => 'opiy.smallcontactform::lang.plugin.name',
-            'description' => 'opiy.smallcontactform::lang.plugin.description',
-            'author' => 'Jan Vince',
-            'icon' => 'icon-inbox'
+            'name' => 'opiy.faq::lang.plugin.name',
+            'description' => 'opiy.faq::lang.plugin.description',
+            'author' => 'opiy',
+            'icon' => 'icon-question-circle-o'
         ];
     }
 
@@ -41,33 +41,33 @@ class Plugin extends PluginBase {
 
         return [
             'settings' => [
-                'label' => 'opiy.smallcontactform::lang.plugin.name',
-                'description' => 'opiy.smallcontactform::lang.plugin.description',
+                'label' => 'opiy.faq::lang.plugin.name',
+                'description' => 'opiy.faq::lang.plugin.description',
                 'category'    => 'Small plugins',
                 'icon' => 'icon-inbox',
-                'class' => 'opiy\SmallContactForm\Models\Settings',
-                'keywords' => 'small contact form message recaptcha antispam',
+                'class' => 'opiy\Faq\Models\Settings',
+                'keywords' => 'small faq message recaptcha antispam',
                 'order' => 990,
-                'permissions' => ['opiy.smallcontactform.access_settings'],
+                'permissions' => ['opiy.faq.access_settings'],
             ]
         ];
     }
 
     public function registerNavigation(){
         return [
-            'smallcontactform' => [
-                'label'       => 'opiy.smallcontactform::lang.navigation.main_label',
-                'url'         => Backend::url('opiy/smallcontactform/messages'),
+            'faq' => [
+                'label'       => 'opiy.faq::lang.navigation.main_label',
+                'url'         => Backend::url('opiy/faq/messages'),
                 'icon'        => 'icon-inbox',
-                'permissions' => ['opiy.smallcontactform.access_messages'],
+                'permissions' => ['opiy.faq.access_messages'],
                 'order'       => 990,
 
                 'sideMenu' => [
                     'messages' => [
-                        'label'       => 'opiy.smallcontactform::lang.navigation.messages',
+                        'label'       => 'opiy.faq::lang.navigation.messages',
                         'icon'        => 'icon-envelope-o',
-                        'url'         => Backend::url('opiy/smallcontactform/messages'),
-                        'permissions' => ['opiy.smallcontactform.access_messages']
+                        'url'         => Backend::url('opiy/faq/messages'),
+                        'permissions' => ['opiy.faq.access_messages']
                     ],
 
                 ],
@@ -81,17 +81,17 @@ class Plugin extends PluginBase {
     public function registerPermissions(){
 
         return [
-            'opiy.smallcontactform.access_messages' => [
-                'label' => 'opiy.smallcontactform::lang.permissions.access_messages',
-                'tab' => 'opiy.smallcontactform::lang.plugin.name',
+            'opiy.faq.access_messages' => [
+                'label' => 'opiy.faq::lang.permissions.access_messages',
+                'tab' => 'opiy.faq::lang.plugin.name',
             ],
-            'opiy.smallcontactform.delete_messages' => [
-                'label' => 'opiy.smallcontactform::lang.permissions.delete_messages',
-                'tab' => 'opiy.smallcontactform::lang.plugin.name',
+            'opiy.faq.delete_messages' => [
+                'label' => 'opiy.faq::lang.permissions.delete_messages',
+                'tab' => 'opiy.faq::lang.plugin.name',
             ],
-            'opiy.smallcontactform.access_settings' => [
-                'label' => 'opiy.smallcontactform::lang.permissions.access_settings',
-                'tab' => 'opiy.smallcontactform::lang.plugin.name',
+            'opiy.faq.access_settings' => [
+                'label' => 'opiy.faq::lang.permissions.access_settings',
+                'tab' => 'opiy.faq::lang.plugin.name',
             ],
         ];
 
@@ -100,7 +100,7 @@ class Plugin extends PluginBase {
     public function registerComponents()
     {
         return [
-            'opiy\SmallContactForm\Components\SmallContactForm' => 'contactForm',
+            'opiy\Faq\Components\Faq' => 'contactForm',
         ];
     }
 
@@ -135,7 +135,7 @@ class Plugin extends PluginBase {
             'strong' => function($value) { return '<strong>'. $value . '</strong>'; },
             'text_preview' => function($value) { $content = mb_substr(strip_tags($value), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
             'array_preview' => function($value) { $content = mb_substr(strip_tags( implode(' --- ', $value) ), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
-            'switch_icon_star' => function($value) { return '<div class="text-center"><span class="'. ($value==1 ? 'oc-icon-circle text-success' : 'text-muted oc-icon-circle text-draft') .'">' . ($value==1 ? e(trans('opiy.smallcontactform::lang.models.message.columns.new')) : e(trans('opiy.smallcontactform::lang.models.message.columns.read')) ) . '</span></div>'; },
+            'switch_icon_star' => function($value) { return '<div class="text-center"><span class="'. ($value==1 ? 'oc-icon-circle text-success' : 'text-muted oc-icon-circle text-draft') .'">' . ($value==1 ? e(trans('opiy.faq::lang.models.message.columns.new')) : e(trans('opiy.faq::lang.models.message.columns.read')) ) . '</span></div>'; },
             'switch_extended_input' => function($value) { if($value){return '<input type="checkbox" checked>';} else { return '<input type="checkbox">';} },
             'switch_extended' => function($value) { if($value){return '<span class="list-badge badge-success"><span class="icon-check"></span></span>';} else { return '<span class="list-badge badge-danger"><span class="icon-minus"></span></span>';} },
             'attached_images_count' => function($value){ return (count($value) ? count($value) : NULL); },
@@ -151,12 +151,12 @@ class Plugin extends PluginBase {
     public function registerReportWidgets()
     {
         return [
-            'opiy\SmallContactForm\ReportWidgets\Messages' => [
-                'label'   => 'opiy.smallcontactform::lang.reportwidget.partials.messages.label',
+            'opiy\Faq\ReportWidgets\Messages' => [
+                'label'   => 'opiy.faq::lang.reportwidget.partials.messages.label',
                 'context' => 'dashboard'
             ],
-            'opiy\SmallContactForm\ReportWidgets\NewMessage' => [
-                'label'   => 'opiy.smallcontactform::lang.reportwidget.partials.new_message.label',
+            'opiy\Faq\ReportWidgets\NewMessage' => [
+                'label'   => 'opiy.faq::lang.reportwidget.partials.new_message.label',
                 'context' => 'dashboard'
             ],
         ];

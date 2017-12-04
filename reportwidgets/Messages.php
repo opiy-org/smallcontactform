@@ -1,12 +1,12 @@
 <?php
 
-namespace opiy\SmallContactForm\ReportWidgets;
+namespace opiy\Faq\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use opiy\SmallContactForm\Controllers\Messages as MessagesController;
+use opiy\Faq\Controllers\Messages as MessagesController;
 
 /**
- * Contact form sent messages report widget
+ * Faq sent messages report widget
  */
 class Messages extends ReportWidgetBase
 {

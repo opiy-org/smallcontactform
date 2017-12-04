@@ -5,6 +5,6 @@
 scopes:
 
     date:
-        label: opiy.smallcontactform::lang.controller.filter.columns.date
+        label: opiy.faq::lang.controller.filter.columns.date
         type: daterange
         conditions: date >= ':after' AND date <= ':before'

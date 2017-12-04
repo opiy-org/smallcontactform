@@ -1,4 +1,4 @@
-<?php namespace opiy\SmallContactForm\Models;
+<?php namespace opiy\Faq\Models;
 
 use Str;
 use Model;
@@ -6,7 +6,7 @@ use URL;
 use October\Rain\Router\Helper as RouterHelper;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
-use opiy\SmallContactForm\Models\Settings;
+use opiy\Faq\Models\Settings;
 use Log;
 use Validator;
 use Mail;
@@ -22,7 +22,7 @@ class Message extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-    public $table = 'opiy_smallcontactform_messages';
+    public $table = 'opiy_faq_messages';
 
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
@@ -79,7 +79,7 @@ class Message extends Model
             }
 
             if( !$fieldDefined ) {
-                Log::warning('SMALL CONTACT FORM WARNING: Found a non-defined field in sent data! Field name: ' . e($key) . ' and value: ' . e($value['value']) );
+                Log::warning('SMALL FAQ WARNING: Found a non-defined field in sent data! Field name: ' . e($key) . ' and value: ' . e($value['value']) );
                 continue;
             }
 
@@ -121,7 +121,7 @@ class Message extends Model
         }
 
         if(!Settings::getTranslated('autoreply_email_field')) {
-            Log::error('SMALL CONTACT FORM ERROR: Contact form data have no email to send autoreply message!');
+            Log::error('SMALL FAQ ERROR: Faq data have no email to send autoreply message!');
             return;
         }
 
@@ -139,7 +139,7 @@ class Message extends Model
         $validator = Validator::make(['email' => $sendTo], ['email' => 'required|email']);
 
         if($validator->fails()){
-            Log::error('SMALL CONTACT FORM ERROR: Email to send autoreply is not valid!' . PHP_EOL . ' Data: '. json_encode($postData) );
+            Log::error('SMALL FAQ ERROR: Email to send autoreply is not valid!' . PHP_EOL . ' Data: '. json_encode($postData) );
             return;
         }
 
@@ -178,7 +178,7 @@ class Message extends Model
             if(View::exists(Settings::getTranslated('email_template')) OR !empty( MailTemplate::listAllTemplates()[Settings::getTranslated('email_template')] ) ) {
                 $template = Settings::getTranslated('email_template');
             } else {
-                Log::error('SMALL CONTACT FORM: Missing defined email template: ' . Settings::getTranslated('email_template') . '. Default template will be used!');
+                Log::error('SMALL FAQ: Missing defined email template: ' . Settings::getTranslated('email_template') . '. Default template will be used!');
             }
 
         }
@@ -190,13 +190,13 @@ class Message extends Model
         if ( !empty($componentProperties['email_template']) and !empty( MailTemplate::listAllTemplates()[ $componentProperties['email_template'] ] ) ) {
             $template = $componentProperties['email_template'];
         } elseif ( !empty($componentProperties['email_template']) and empty( MailTemplate::listAllTemplates()[ $componentProperties['email_template'] ] ) ) {
-            Log::error('SMALL CONTACT FORM: Missing defined email template: ' . $componentProperties['email_template'] . '. ' . $template . ' template will be used!');
+            Log::error('SMALL FAQ: Missing defined email template: ' . $componentProperties['email_template'] . '. ' . $template . ' template will be used!');
         }
 
         if ( !empty($componentProperties[ ('email_template_'.App::getLocale())]) and !empty( MailTemplate::listAllTemplates()[ $componentProperties[ ('email_template_'.App::getLocale())] ] ) ) {
             $template =  $componentProperties[('email_template_'.App::getLocale())];
         } elseif ( !empty($componentProperties[ ('email_template_'.App::getLocale())]) and empty( MailTemplate::listAllTemplates()[ $componentProperties[ ('email_template_'.App::getLocale())] ] ) ) {
-            Log::error('SMALL CONTACT FORM: Missing defined email template: ' . $componentProperties[ ('email_template_'.App::getLocale())] . '. ' . $template . ' template will be used!');
+            Log::error('SMALL FAQ: Missing defined email template: ' . $componentProperties[ ('email_template_'.App::getLocale())] . '. ' . $template . ' template will be used!');
         }
 
         Mail::{$method}($template, ['fields' => $output, 'fieldsDetails' => $outputFull], function($message) use($sendTo, $componentProperties){
@@ -233,7 +233,7 @@ class Message extends Model
             $validator = Validator::make(['email' => $fromAddress], ['email' => 'required|email']);
 
             if($validator->fails()){
-                Log::error('SMALL CONTACT FORM ERROR: Autoreply email address is invalid (' .$fromAddress. ')! System email address and name will be used.');
+                Log::error('SMALL FAQ ERROR: Autoreply email address is invalid (' .$fromAddress. ')! System email address and name will be used.');
                 return;
             }
 
@@ -257,7 +257,7 @@ class Message extends Model
         $validator = Validator::make(['email' => $sendTo], ['email' => 'required|email']);
 
         if($validator->fails()){
-            Log::error('SMALL CONTACT FORM ERROR: Notification email address (' .$sendTo. ') is invalid! No notification will be delivered!');
+            Log::error('SMALL FAQ ERROR: Notification email address (' .$sendTo. ') is invalid! No notification will be delivered!');
             return;
         }
 
@@ -307,7 +307,7 @@ class Message extends Model
             if(View::exists(Settings::getTranslated('notification_template')) OR !empty( MailTemplate::listAllTemplates()[Settings::getTranslated('notification_template')] ) ) {
                 $template = Settings::getTranslated('notification_template');
             } else {
-                Log::error('SMALL CONTACT FORM: Missing defined email template: ' . Settings::getTranslated('notification_template') . '. Default template will be used!');
+                Log::error('SMALL FAQ: Missing defined email template: ' . Settings::getTranslated('notification_template') . '. Default template will be used!');
             }
 
         }
@@ -319,14 +319,14 @@ class Message extends Model
         if ( !empty($componentProperties['notification_template']) and !empty( MailTemplate::listAllTemplates()[ $componentProperties['notification_template'] ] ) ) {
             $template = $componentProperties['notification_template'];
         } elseif ( !empty($componentProperties['notification_template']) and empty( MailTemplate::listAllTemplates()[ $componentProperties['notification_template'] ] ) ) {
-            Log::error('SMALL CONTACT FORM: Missing defined email template: ' . $componentProperties['notification_template'] . '. ' . $template . ' template will be used!');
+            Log::error('SMALL FAQ: Missing defined email template: ' . $componentProperties['notification_template'] . '. ' . $template . ' template will be used!');
         }
 
 
         if ( !empty($componentProperties[ ('notification_template_'.App::getLocale())]) and !empty( MailTemplate::listAllTemplates()[ $componentProperties[ ('notification_template_'.App::getLocale())] ] ) ) {
             $template =  $componentProperties[('notification_template_'.App::getLocale())];
         } elseif ( !empty($componentProperties[ ('notification_template_'.App::getLocale())]) and empty( MailTemplate::listAllTemplates()[ $componentProperties[ ('notification_template_'.App::getLocale())] ] ) ) {
-            Log::error('SMALL CONTACT FORM: Missing defined email template: ' . $componentProperties[ ('notification_template_'.App::getLocale())] . '. ' . $template . ' template will be used!');
+            Log::error('SMALL FAQ: Missing defined email template: ' . $componentProperties[ ('notification_template_'.App::getLocale())] . '. ' . $template . ' template will be used!');
         }
         Mail::{$method}($template, ['fields' => $output, 'fieldsDetails' => $outputFull], function($message) use($sendTo, $fromAddress, $fromAddressName){
 
@@ -340,7 +340,7 @@ class Message extends Model
                 $validator = Validator::make(['email' => $fromAddress], ['email' => 'required|email']);
 
                 if($validator->fails()){
-                    Log::error('SMALL CONTACT FORM ERROR: Notification from address is not valid (' .$fromAddress. ')! System email address and name will be used.');
+                    Log::error('SMALL FAQ ERROR: Notification from address is not valid (' .$fromAddress. ')! System email address and name will be used.');
                     return;
                 }
 

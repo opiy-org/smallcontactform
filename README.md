@@ -1,5 +1,5 @@
 # small FAQ plugin 
-> fork from https://github.com/jan-vince/smallcontactform
+> fork from https://github.com/jan-vince/faq
 
 
 ## Installation
@@ -7,24 +7,24 @@
 **GitHub** clone into `/plugins` dir:
 
 ```sh
-git clone https://github.com/opiy-org/smallcontactform
+git clone https://github.com/opiy-org/faq
 ```
 
 **OctoberCMS backend**
 
-Just look for 'Small Contact Form' in search field in:
+Just look for 'Small Faq' in search field in:
 > Settings > Updates & Plugins > Install plugins
 
 ### Permissions
 
 > Settings > Administrators
 
-You can set permissions to restrict access to *Settings > Small plugins > Contact form* and to messages list.
+You can set permissions to restrict access to *Settings > Small plugins > Faq* and to messages list.
 
 
-## Setup new Contact form
+## Setup new Faq
 
-> Settings > Small Contact form
+> Settings > Small Faq
 
 ### FORM
 
@@ -151,7 +151,7 @@ There are variables available in all email templates:
 Email can be send to form sender as confirmation.
 
 * You have to enter email address and name - it will be used as FROM field
-* Email subject can be manually added here (or edited in *Settings > Mail > Mail templates (code: opiy.smallcontactform::mail.autoreply)*)
+* Email subject can be manually added here (or edited in *Settings > Mail > Mail templates (code: opiy.faq::mail.autoreply)*)
 * Email TO address and name have to be assigned to form fields (in selections only corresponding field types are shown - if you don't see one, try to check it's type in Fields tab)
  * Message field can be also assigned (and will be saved separately into database)
 
@@ -169,7 +169,7 @@ You can allow translation with [RainLab Translate](https://octobercms.com/plugin
 
 #### Form texts
 
-Most of Small Contact form texts can be edited right in *Settings > Small plugins > Contact form*.
+Most of Small Faq texts can be edited right in *Settings > Small plugins > Faq*.
 
 #### Custom form fields
 
@@ -179,9 +179,9 @@ Translate plugin doesn't supports translation of individual repeater fields yet,
 
 #### Email templates
 
-You can create your own email templates in *Settings > Mail > Mail templates* (for hint look inside of default templates starting with *opiy.smallcontactform::*).
+You can create your own email templates in *Settings > Mail > Mail templates* (for hint look inside of default templates starting with *opiy.faq::*).
 
-Remember your email templates CODE and put in in Small Contact form email settings in *Settings > Small plugins > Contact form > Email tab*. For each language there can be specific template.
+Remember your email templates CODE and put in in Small Faq email settings in *Settings > Small plugins > Faq > Email tab*. For each language there can be specific template.
 
 There is ````{{fields}}```` array available inside of email templates.
 
@@ -189,9 +189,9 @@ There is ````{{fields}}```` array available inside of email templates.
 
 ## MESSAGES LIST
 
-All sent data from Contact form are saved and listed in backend Messages list.
+All sent data from Faq are saved and listed in backend Messages list.
 
-If email, name and message fields are assigned on *Settings > Small plugins > contact form > Columns mapping tab*, they will be saved and shown in separate columns.
+If email, name and message fields are assigned on *Settings > Small plugins > faq > Columns mapping tab*, they will be saved and shown in separate columns.
 
 You can click on a record to see all form data. The message will be marked as read.
 
@@ -213,10 +213,10 @@ You can simply click widget to open Messages list.
 
 ## Hacking a form component
 
-Sometimes there is a need to have more than one contact form. As this plugin is meant to be as simple as possible, these multiform functions are little hacks :)
+Sometimes there is a need to have more than one faq. As this plugin is meant to be as simple as possible, these multiform functions are little hacks :)
 
 #### Override notification email options
-You can set different email address to which notification about Contact Form sent will be delivered and also change a notification template.
+You can set different email address to which notification about Faq sent will be delivered and also change a notification template.
 
 *Template must exist in Settings > Mail > Mail configuration*.
 

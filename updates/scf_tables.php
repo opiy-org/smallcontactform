@@ -1,16 +1,16 @@
 <?php
 
-namespace opiy\SmallContactForm\Updates;
+namespace opiy\Faq\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class SmallContactFormTables_01 extends Migration
+class FaqTables_01 extends Migration
 {
     public function up()
     {
 
-        Schema::create('opiy_smallcontactform_messages', function($table)
+        Schema::create('opiy_faq_messages', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -26,6 +26,6 @@ class SmallContactFormTables_01 extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('opiy_smallcontactform_messages');
+        Schema::dropIfExists('opiy_faq_messages');
     }
 }

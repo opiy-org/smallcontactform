@@ -3,18 +3,18 @@
 # ===================================
 
 # Model List Column configuration
-list: $/opiy/smallcontactform/models/message/columns.yaml
+list: $/opiy/faq/models/message/columns.yaml
 
 # Model Class name
-modelClass: opiy\SmallContactForm\Models\Message
+modelClass: opiy\Faq\Models\Message
 
 # List Title
-title: "opiy.smallcontactform::lang.controllers.messages.list_title"
+title: "opiy.faq::lang.controllers.messages.list_title"
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
 
-recordUrl: 'opiy/smallcontactform/messages/preview/:id'
+recordUrl: 'opiy/faq/messages/preview/:id'
 
 # Records to display per page
 recordsPerPage: 20

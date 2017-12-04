@@ -2,8 +2,8 @@
 
 return [
   'plugin' => [
-    'name' => 'Contact form',
-    'description' => 'Simple contact form builder',
+    'name' => 'Faq',
+    'description' => 'Simple faq builder',
     'category' => 'Small plugins',
   ],
 
@@ -14,16 +14,16 @@ return [
   ],
 
   'navigation' => [
-    'main_label' => 'Contact form',
+    'main_label' => 'Faq',
     'messages' => 'Messages',
   ],
 
   'controller' => [
 
     'contact_form' => [
-      'name' => 'Contact form',
-      'description' => 'Insert contact form to the page',
-      'no_fields' => 'Please add some form fields in backend administration first (in Settings > Small Contact form > Fields)...',
+      'name' => 'Faq',
+      'description' => 'Insert faq to the page',
+      'no_fields' => 'Please add some form fields in backend administration first (in Settings > Small Faq > Fields)...',
     ],
 
     'filter' => [
@@ -77,7 +77,7 @@ return [
 
       'list_title' => 'Messages',
       'preview' => 'Preview',
-      'preview_title' => 'Contact form message',
+      'preview_title' => 'Faq message',
       'preview_date' => 'From date:',
       'preview_content_title' => 'Content:',
       'remote_ip' => 'sent from ip',
@@ -109,7 +109,7 @@ return [
     'partials' => [
 
       'messages' => [
-        'label' => 'Contact form - Messages stats',
+        'label' => 'Faq - Messages stats',
         'title' => 'Messages stats',
         'messages_all' => 'All',
         'messages_new' => 'New',
@@ -117,7 +117,7 @@ return [
       ],
 
       'new_message' => [
-        'label' => 'Contact form - New messages',
+        'label' => 'Faq - New messages',
         'title' => 'New messages',
         'link_text' => 'Click to show Messages list',
       ],
@@ -257,7 +257,7 @@ return [
       'subject_comment' => 'Set only if you want other than defined in Settings > Mail templates.',
 
       'template' => 'Email template',
-      'template_comment' => 'Code of email template created in Settings > Email templates. Left empty for default template: opiy.smallcontactform::mail.autoreply.',
+      'template_comment' => 'Code of email template created in Settings > Email templates. Left empty for default template: opiy.faq::mail.autoreply.',
 
       'allow_email_queue' => 'Queueing mail',
       'allow_email_queue_comment' => 'Add email to queue instead of immediately send. You have to configure your OctoberCMS queue first!',
@@ -269,7 +269,7 @@ return [
       'notification_address_to_placeholder' => 'notifications@domain.com',
 
       'notification_address_from_form' => 'Form email field as notification FROM address',
-      'notification_address_from_form_comment' => 'Set from address to email entered in contact form (the field must be set in column mapping), so you can directly reply to notification.',
+      'notification_address_from_form_comment' => 'Set from address to email entered in faq (the field must be set in column mapping), so you can directly reply to notification.',
 
       'allow_autoreply' => 'Allow autoreply',
       'allow_autoreply_comment' => 'Send a form content copy to author',
@@ -287,7 +287,7 @@ return [
       'autoreply_message_field_comment' => 'Must be type of Textarea or Text.<br><em>Save and refresh this page if you can\'t see your fields.</em>',
 
       'notification_template' => 'Notification email template',
-      'notification_template_comment' => 'Code of email template created in Settings > Email templates. Left empty for default template: opiy.smallcontactform::mail.autoreply.',
+      'notification_template_comment' => 'Code of email template created in Settings > Email templates. Left empty for default template: opiy.faq::mail.autoreply.',
 
     ],
 

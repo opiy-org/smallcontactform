@@ -1,6 +1,6 @@
 <?php
 
-namespace opiy\SmallContactForm\Models;
+namespace opiy\Faq\Models;
 
 use Model;
 use App;
@@ -32,9 +32,9 @@ class Settings extends Model
         'notification_template',
     ];
 
-    public $requiredPermissions = ['opiy.smallcontactform.access_settings'];
+    public $requiredPermissions = ['opiy.faq.access_settings'];
 
-    public $settingsCode = 'opiy_smallcontactform_settings';
+    public $settingsCode = 'opiy_faq_settings';
 
     public $settingsFields = 'fields.yaml';
 
@@ -106,7 +106,7 @@ class Settings extends Model
     }
 
     foreach ($fieldTypes as $key => $value) {
-      $types[$key] = 'opiy.smallcontactform::lang.settings.form_field_types.'.$key;
+      $types[$key] = 'opiy.faq::lang.settings.form_field_types.'.$key;
     }
 
     return $types;
@@ -121,9 +121,9 @@ class Settings extends Model
   {
 
       return [
-      'required' => 'opiy.smallcontactform::lang.settings.form_field_validation.required',
-      'email' => 'opiy.smallcontactform::lang.settings.form_field_validation.email',
-      'numeric' => 'opiy.smallcontactform::lang.settings.form_field_validation.numeric',
+      'required' => 'opiy.faq::lang.settings.form_field_validation.required',
+      'email' => 'opiy.faq::lang.settings.form_field_validation.email',
+      'numeric' => 'opiy.faq::lang.settings.form_field_validation.numeric',
     ];
   }
 
@@ -304,11 +304,11 @@ class Settings extends Model
             'en' => [
 
                 'autoreply' => [
-                    'opiy.smallcontactform::mail.autoreply' => 'opiy.smallcontactform::lang.mail.templates.autoreply',
+                    'opiy.faq::mail.autoreply' => 'opiy.faq::lang.mail.templates.autoreply',
                 ],
 
                 'notification' => [
-                    'opiy.smallcontactform::mail.notification' => 'opiy.smallcontactform::lang.mail.templates.notification',
+                    'opiy.faq::mail.notification' => 'opiy.faq::lang.mail.templates.notification',
                 ],
 
             ],
@@ -316,11 +316,11 @@ class Settings extends Model
             'cs' => [
 
                 'autoreply' => [
-                    'opiy.smallcontactform::mail.autoreply_cs' => 'opiy.smallcontactform::lang.mail.templates.autoreply_cs',
+                    'opiy.faq::mail.autoreply_cs' => 'opiy.faq::lang.mail.templates.autoreply_cs',
                 ],
 
                 'notification' => [
-                    'opiy.smallcontactform::mail.notification_cs' => 'opiy.smallcontactform::lang.mail.templates.notification_cs',
+                    'opiy.faq::mail.notification_cs' => 'opiy.faq::lang.mail.templates.notification_cs',
                 ],
 
             ],

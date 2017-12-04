@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('opiy/smallcontactform/messages') ?>"><?= e(trans('opiy.smallcontactform::lang.controllers.messages.list_title')); ?></a></li>
-        <li><?= e(trans('opiy.smallcontactform::lang.controllers.messages.preview')); ?></li>
+        <li><a href="<?= Backend::url('opiy/faq/messages') ?>"><?= e(trans('opiy.faq::lang.controllers.messages.list_title')); ?></a></li>
+        <li><?= e(trans('opiy.faq::lang.controllers.messages.preview')); ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -9,13 +9,13 @@
 
     <div class="preview">
 
-		<h3><?php echo(e(trans('opiy.smallcontactform::lang.controllers.messages.preview_title')) ); ?></h3>
+		<h3><?php echo(e(trans('opiy.faq::lang.controllers.messages.preview_title')) ); ?></h3>
 
-		<p><strong><?php echo(e(trans('opiy.smallcontactform::lang.controllers.messages.preview_date')) ); ?></strong> <?php echo($message->created_at->format('j.n.Y H:i:s')); ?></p>
+		<p><strong><?php echo(e(trans('opiy.faq::lang.controllers.messages.preview_date')) ); ?></strong> <?php echo($message->created_at->format('j.n.Y H:i:s')); ?></p>
 
 		<br>
 
-		<p><strong><?php echo(e(trans('opiy.smallcontactform::lang.controllers.messages.preview_content_title')) ); ?></strong></p>
+		<p><strong><?php echo(e(trans('opiy.faq::lang.controllers.messages.preview_content_title')) ); ?></strong></p>
 
 		<table>
 
@@ -29,7 +29,7 @@
 			<?php endforeach ?>
 
                 <tr>
-                    <th class="p-r-md"><?php echo(e(trans('opiy.smallcontactform::lang.controllers.messages.remote_ip')) ); ?></th>
+                    <th class="p-r-md"><?php echo(e(trans('opiy.faq::lang.controllers.messages.remote_ip')) ); ?></th>
                     <td><?php if(!empty($message->remote_ip)) { echo($message->remote_ip); } ?></td>
 
 		</table>
@@ -45,7 +45,7 @@
 <?php endif ?>
 
 <p>
-    <a href="<?= Backend::url('opiy/smallcontactform/messages') ?>" class="btn btn-default oc-icon-chevron-left">
+    <a href="<?= Backend::url('opiy/faq/messages') ?>" class="btn btn-default oc-icon-chevron-left">
         <?= e(trans('backend::lang.form.return_to_list')) ?>
     </a>
 </p>
