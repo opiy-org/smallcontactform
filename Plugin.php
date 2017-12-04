@@ -100,7 +100,7 @@ class Plugin extends PluginBase {
     public function registerComponents()
     {
         return [
-            'opiy\Faq\Components\Faq' => 'contactForm',
+            'opiy\Faq\Components\Faq' => 'Faq',
         ];
     }
 
