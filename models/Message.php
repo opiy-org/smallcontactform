@@ -53,6 +53,14 @@ class Message extends Model
         return $query->where('new_message', '=', 0);
     }
 
+    /**
+     * Scope approved messages only
+     */
+    public function scopeIsModerated($query)
+    {
+        return $query->where('new_message', '=', 2);  //TODO: here
+    }
+
 
     public function storeFormData($data){
 

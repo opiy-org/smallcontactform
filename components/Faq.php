@@ -43,10 +43,10 @@ class Faq extends ComponentBase
     public function onRun() {
 
         if ( Session::get('flashSuccess') ) {
-
           $this->page['flashSuccess'] = Session::get('flashSuccess', $this->alias);
-
         }
+
+        $this->page['faqs'] = $this->faqs();
 
         // Inject CSS assets if required
         if(Settings::getTranslated('add_assets') && Settings::getTranslated('add_css_assets')){
@@ -62,6 +62,25 @@ class Faq extends ComponentBase
           $this->addJs('/modules/system/assets/js/framework.extras.js');
         }
 
+    }
+
+
+
+    public function faqs()
+    {
+
+            //$faqs = Message::isModerated(); //TODO HERE
+
+            $faqs = Message::isRead();
+
+            $faqs = $faqs->orderBy(
+                $this->property('orderBy', 'id'),
+                $this->property('sort', 'desc'))->take($this->property('maxItems'));
+
+            return $this->list = $this->property('paginate') ?
+                $faqs->paginate($this->property('perPage'), $this->property('page')) :
+                $faqs->get();
+        
     }
 
   /**

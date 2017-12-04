@@ -101,6 +101,7 @@ class Plugin extends PluginBase {
     {
         return [
             'opiy\Faq\Components\Faq' => 'Faq',
+
         ];
     }
 

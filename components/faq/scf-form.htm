@@ -10,7 +10,21 @@
 
 		{{ __SELF__.getAntispamFieldHtmlCode({})|raw }}
 
+<div class="row align-items-center">
+	<div class="col-md-5">
 		{{ __SELF__.getSubmitButtonHtmlCode({})|raw }}
+	</div>
+	<div class="col-md-7 row align-items-center">
+
+        <div class="d-none d-sm-block col-sm-2 secur-lock">
+            <i class="fa fa-lock"></i>
+        </div>
+        <div class="secur col-sm-10">
+            Введеные вами данные защищены <br/>
+            от передачи третьим лицам
+        </div>
+	</div>
+</div>
 
 	{{ form_close() }}
 
