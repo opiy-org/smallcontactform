@@ -41,6 +41,9 @@ return [
       'mark_read' => 'Mark as read',
       'mark_read_confirm' => 'Really set selected messages as read?',
       'mark_read_success' => 'Successfully marked as read.',
+      'mark_state' => 'Mark as visible',
+      'mark_state_confirm' => 'Really set selected messages as visible?',
+      'mark_state_success' => 'Successfully marked as visible.',
     ],
 
     'preview' => [

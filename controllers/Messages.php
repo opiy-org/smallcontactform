@@ -19,9 +19,11 @@ class Messages extends Controller
   public $requiredPermissions = ['opiy.faq.access_messages'];
 
     public $implement = [
+        'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'
     ];
 
+    public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
     public function __construct()
@@ -104,6 +106,26 @@ class Messages extends Controller
     }
 
     /**
+     * Preview page view
+     * @param $id
+     */
+    public function update( $id ){
+
+        $message = Message::find( $id );
+
+        if ( $message ) {
+
+            $this->vars['message'] = $message;
+            $message->new_message = 0;
+            $message->save();
+
+        }
+
+        parent::update($id);
+
+    }
+
+    /**
      * Index page view
      */
     public function index(){
@@ -145,6 +167,40 @@ class Messages extends Controller
             }
 
             Flash::success( e(trans('opiy.faq::lang.controller.scoreboard.mark_read_success')) );
+
+            return $this->listRefresh();
+
+        }
+
+    }
+
+
+    /**
+     * Mark messages as visible
+     * @param $record
+     */
+    public function onMarkState(){
+
+        if (!$this->user->hasAccess('opiy.faq.access_messages')) {
+
+            Flash::error( e(trans('opiy.faq::lang.controllers.index.unauthorized')) );
+            return;
+
+        }
+
+        if ( ($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds) ) {
+
+            foreach ($checkedIds as $item) {
+                if (!$record = Message::find($item)) {
+                    continue;
+                }
+
+                $record->state = 1;
+                $record->save();
+
+            }
+
+            Flash::success( e(trans('opiy.faq::lang.controller.scoreboard.mark_state_success')) );
 
             return $this->listRefresh();
 

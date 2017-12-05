@@ -14,7 +14,7 @@ title: "opiy.faq::lang.controllers.messages.list_title"
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
 
-recordUrl: 'opiy/faq/messages/preview/:id'
+recordUrl: 'opiy/faq/messages/update/:id'
 
 # Records to display per page
 recordsPerPage: 20

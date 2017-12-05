@@ -1,0 +1,94 @@
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <li>
+        <a href="<?= Backend::url('opiy/faq/messages') ?>"><?= e(trans('opiy.faq::lang.controllers.messages.list_title')); ?></a>
+    </li>
+    <li><?= e(trans('opiy.faq::lang.controllers.messages.preview')); ?></li>
+</ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+<div class="well">
+    <div>
+        <p>
+            <strong><?php echo(e(trans('opiy.faq::lang.controllers.messages.preview_date')) ); ?></strong> <?php echo($message->
+            created_at->format('j.n.Y H:i:s')); ?></p>
+
+        <br>
+
+        <p><strong><?php echo(e(trans('opiy.faq::lang.controllers.messages.preview_content_title')) ); ?></strong></p>
+    </div>
+    <div>
+
+        <?php foreach($message->form_data as $key => $field) : ?>
+
+        <div class="row">
+            <div class="col-sm-2" style="vertical-align: top;"><?php echo($key); ?></div>
+            <div class="col-sm-10"><?php echo( nl2br(html_entity_decode($field)) ) ?></div>
+        </div>
+
+        <?php endforeach ?>
+
+        <div class="row">
+            <div class="col-sm-2 p-r-md"><?php echo(e(trans('opiy.faq::lang.controllers.messages.remote_ip')) ); ?></div>
+            <div class="col-sm-19"><?php if(!empty($message->remote_ip)) { echo($message->remote_ip); } ?></div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<?= Form::open(['class' => 'layout']) ?>
+
+<div class="layout-row">
+    <?= $this->formRender() ?>
+</div>
+
+<div class="form-buttons">
+    <div class="loading-indicator-container">
+        <button
+                type="submit"
+                data-request="onSave"
+                data-request-data="redirect:0"
+                data-hotkey="ctrl+s, cmd+s"
+                data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
+                class="btn btn-primary">
+            <?= e(trans('backend::lang.form.save')) ?>
+        </button>
+        <button
+                type="button"
+                data-request="onSave"
+                data-request-data="close:1"
+                data-hotkey="ctrl+enter, cmd+enter"
+                data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
+                class="btn btn-default">
+            <?= e(trans('backend::lang.form.save_and_close')) ?>
+        </button>
+        <button
+                type="button"
+                class="oc-icon-trash-o btn-icon danger pull-right"
+                data-request="onDelete"
+                data-load-indicator="<?= e(trans('backend::lang.form.deleting_name', ['name'=>$formRecordName])) ?>"
+                data-request-confirm="<?= e(trans('opiy.company::lang.links.delete_confirm')) ?>">
+        </button>
+        <span class="btn-text">
+                    <?= e(trans('backend::lang.form.or')) ?> <a
+                href="<?= Backend::url('opiy/company/links') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                </span>
+    </div>
+</div>
+
+<?= Form::close() ?>
+
+<?php else: ?>
+
+<p class="flash-message static error"><?= e($this->fatalError) ?></p>
+<p>
+    <a href="<?= Backend::url('opiy/faq/messages') ?>" class="btn btn-default oc-icon-chevron-left">
+        <?= e(trans('backend::lang.form.return_to_list')) ?>
+    </a>
+</p>
+
+<?php endif ?>

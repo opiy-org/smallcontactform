@@ -25,6 +25,10 @@ columns:
         label: opiy.faq::lang.models.message.columns.email
         searchable: true
 
+    state:
+        label: opiy.faq::lang.models.message.columns.state
+        searchable: true
+
     message:
         label: opiy.faq::lang.models.message.columns.message
         searchable: true

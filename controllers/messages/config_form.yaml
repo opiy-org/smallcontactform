@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: opiy.faq::lang.message.label
+
+# Model Form Field configuration
+form: $/opiy/faq/models/message/fields.yaml
+
+# Model Class name
+modelClass: Opiy\faq\Models\Message
+
+# Default redirect location
+defaultRedirect: opiy/faq/messages
+
+# Update page
+update:
+    title: opiy.faq::lang.message.update_title
+    redirect: opiy/faq/messages
+    redirectClose: opiy/faq/messages
+
+# Preview page
+preview:
+    title: opiy.faq::lang.message.preview_title

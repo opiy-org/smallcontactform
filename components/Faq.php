@@ -69,9 +69,8 @@ class Faq extends ComponentBase
     public function faqs()
     {
 
-            //$faqs = Message::isModerated(); //TODO HERE
+            $faqs = Message::isModerated();
 
-            $faqs = Message::isRead();
 
             $faqs = $faqs->orderBy(
                 $this->property('orderBy', 'id'),

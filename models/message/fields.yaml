@@ -1,0 +1,28 @@
+fields:
+    name:
+        label: 'opiy.faq::lang.models.message.columns.name'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+    state:
+        label: 'opiy.faq::lang.models.message.columns.state'
+        oc.commentPosition: ''
+        span: auto
+        type: radio
+        options:
+            0: 'opiy.faq::lang.hidden'
+            1: 'opiy.faq::lang.visible'
+        default: 1
+    message:
+        type: textarea
+        size: big
+        label: 'opiy.faq::lang.models.message.columns.message'
+        span: full
+        tab: 'opiy.faq::lang.models.message.columns.message'
+    reply:
+        type: richeditor
+        size: giant
+        label: 'opiy.faq::lang.models.message.columns.reply'
+        span: full
+        tab: 'opiy.faq::lang.models.message.columns.reply'

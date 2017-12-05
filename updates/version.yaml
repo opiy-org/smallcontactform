@@ -84,3 +84,6 @@
     - Removed value attribute in textarea field
 1.5.7:
     - Added component alias to id attributes for multi-form usage
+1.5.8:
+    - add state and reqply fields
+    - scf_tables_03.php
