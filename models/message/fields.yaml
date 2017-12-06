@@ -11,8 +11,8 @@ fields:
         span: auto
         type: radio
         options:
-            0: 'opiy.faq::lang.hidden'
-            1: 'opiy.faq::lang.visible'
+            0: 'opiy.faq::lang.models.message.columns.state_hidden'
+            1: 'opiy.faq::lang.models.message.columns.state_visible'
         default: 1
     message:
         type: textarea

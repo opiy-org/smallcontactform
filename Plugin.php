@@ -44,7 +44,7 @@ class Plugin extends PluginBase {
                 'label' => 'opiy.faq::lang.plugin.name',
                 'description' => 'opiy.faq::lang.plugin.description',
                 'category'    => 'Small plugins',
-                'icon' => 'icon-inbox',
+                'icon' => 'icon-question-circle-o',
                 'class' => 'opiy\Faq\Models\Settings',
                 'keywords' => 'small faq message recaptcha antispam',
                 'order' => 990,
@@ -58,7 +58,7 @@ class Plugin extends PluginBase {
             'faq' => [
                 'label'       => 'opiy.faq::lang.navigation.main_label',
                 'url'         => Backend::url('opiy/faq/messages'),
-                'icon'        => 'icon-inbox',
+                'icon'        => 'icon-question-circle-o',
                 'permissions' => ['opiy.faq.access_messages'],
                 'order'       => 990,
 
