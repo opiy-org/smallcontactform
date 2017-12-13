@@ -22,21 +22,21 @@ return [
 
         'contact_form' => [
             'name' => 'Вопросы',
-            'description' => 'Insert faq to the page',
+            'description' => 'Вставьте ответы на страницу',
             'no_fields' => 'Please add some form fields in backend administration first (in Settings > Small Faq > Fields)...',
         ],
 
         'filter' => [
-            'date' => 'Date range',
+            'date' => 'Диапазон дат',
         ],
 
         'scoreboard' => [
             'records_count' => 'Сообщений',
-            'latest_record' => 'Latest from',
-            'new_count' => 'New',
-            'read_count' => 'Read',
-            'all_count' => 'Total',
-            'all_description' => 'Messages',
+            'latest_record' => 'Последнее от ',
+            'new_count' => 'Новые',
+            'read_count' => 'Прочитанные',
+            'all_count' => 'Всего',
+            'all_description' => 'Сообщения',
             'settings_btn' => 'Настройки',
             'mark_read' => 'Отметить как прочитанное',
             'mark_read_confirm' => 'Really set selected messages as read?',
@@ -47,7 +47,7 @@ return [
         ],
 
         'preview' => [
-            'record_not_found' => 'Message not found!',
+            'record_not_found' => 'Сообщение не найдены!',
         ],
 
     ],
@@ -57,17 +57,17 @@ return [
         'message' => [
 
             'columns' => [
-                'datetime' => 'Date and time',
-                'form_data' => 'Form data',
+                'datetime' => 'Дата и время',
+                'form_data' => 'Данные формы',
                 'name' => 'Имя',
                 'email' => 'Email',
                 'message' => 'Вопрос',
                 'new_message' => 'Статус',
-                'new' => 'New',
-                'read' => 'Read',
+                'new' => 'Новый',
+                'read' => 'Прочитано',
                 'reply' => 'Ответ',
-                'remote_ip' => 'Sender\'s IP',
-                'state' => 'State',
+                'remote_ip' => 'АйПи отправителя',
+                'state' => 'Состояние',
                 'state_hidden' => 'Скрыто',
                 'state_visible' => 'Опубликовано',
 
@@ -82,12 +82,12 @@ return [
 
         'messages' => [
 
-            'list_title' => 'Messages',
-            'preview' => 'Preview',
+            'list_title' => 'Сообщения',
+            'preview' => 'Предварительный просмотр',
             'preview_title' => 'Faq message',
-            'preview_date' => 'From date:',
-            'preview_content_title' => 'Content:',
-            'remote_ip' => 'sent from ip',
+            'preview_date' => 'Дата:',
+            'preview_content_title' => 'Содержимое:',
+            'remote_ip' => 'Отправлено с айпи: ',
 
         ],
 
