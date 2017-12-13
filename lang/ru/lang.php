@@ -117,16 +117,16 @@ return [
 
             'messages' => [
                 'label' => 'Faq - Messages stats',
-                'title' => 'Messages stats',
-                'messages_all' => 'All',
-                'messages_new' => 'New',
-                'messages_read' => 'Read',
+                'title' => 'Стата вопросов',
+                'messages_all' => 'Все',
+                'messages_new' => 'Новые',
+                'messages_read' => 'Прочитанные',
             ],
 
             'new_message' => [
                 'label' => 'Faq - New messages',
-                'title' => 'New messages',
-                'link_text' => 'Click to show Messages list',
+                'title' => 'Новые вопросы',
+                'link_text' => 'Ответить',
             ],
 
         ],
